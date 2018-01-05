@@ -1,6 +1,8 @@
 import numpy as np
 import pyopencl as cl
 
+# From https://documen.tician.de/pyopencl/
+
 a_np = np.random.rand(50000).astype(np.float32)
 b_np = np.random.rand(50000).astype(np.float32)
 

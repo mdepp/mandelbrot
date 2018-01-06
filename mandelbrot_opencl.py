@@ -3,9 +3,9 @@ import pyopencl as cl
 import pyopencl.array as cl_array
 from matplotlib import pyplot
 
-# Init constants (these also have to be changed in the kernal)
-npixels_x = 1920*3
-npixels_y = 1920*2
+# Init constants (the rest of these are set from the kernel)
+npixels_x = 1920*3*2
+npixels_y = 1920*2*2
 
 # Init CL
 context = cl.create_some_context()
@@ -17,9 +17,10 @@ cl_res = cl_array.zeros(queue, (npixels_x*npixels_y,), np.float32)
 with open('mandelbrot.cl') as f:
     # Build and run program
     program = cl.Program(context, f.read()).build()
-    program.mandelbrot(queue, cl_res.shape, None, cl_res.data)
+    mandelbrot = program.mandelbrot
+    mandelbrot(queue, (npixels_x, npixels_y), None, cl_res.data)
 
-    # Get a view of the result as a 2D grid
+    # Get the result in a 2D view for rendering
     pixels = cl_res.get().reshape((npixels_y, npixels_x))
     
     # Display result

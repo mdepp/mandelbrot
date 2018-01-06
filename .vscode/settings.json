@@ -1,0 +1,13 @@
+{
+    "python.pythonPath": "C:\\Users\\Mitchell\\AppData\\Local\\conda\\conda\\envs\\cl\\python.exe",
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
+    "terminal.integrated.shellArgs.windows": [
+
+        "/K", "C:\\ProgramData\\Anaconda3\\Scripts\\activate.bat C:\\ProgramData\\Anaconda3"
+        
+        ],
+        "cSpell.words": [
+            "astype",
+            "npixels"
+        ]
+    }

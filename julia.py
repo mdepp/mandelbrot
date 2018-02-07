@@ -22,9 +22,9 @@ class JuliaSetRenderer:
         with open('julia.cl') as source:
             try:
                 self.program = cl.Program(self.context, source.read()).build()
-            except cl.cffi_cl.RuntimeError as err:
+            except Exception as err: #cl.cffi_cl.RuntimeError as err:
                 raise RuntimeError('Could not compile program: {0}'.format(err))
-            self.kernel = self.program.main
+            self.kernel = self.program.kernel_main
         if not self.kernel:
             raise RuntimeError('Could not load program kernel (does file exist?)')
         

@@ -2,7 +2,7 @@
  * This kernel produces images of an interesting-looking Julia set.
  */
 
-kernel void main(global float* res, float t, int max_iterations)
+kernel void kernel_main(global float* res, float t, int max_iterations)
 {
     // Set program constants
     const float down = -2.0, left = -4.0, width = 6.0, height = 4.0;
